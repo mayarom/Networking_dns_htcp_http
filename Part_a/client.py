@@ -60,6 +60,7 @@ def send_dhcp_request(packet_offer):
         dhcp = DHCP(options=[("message-type", "request"), ("server_id", packet_offer[BOOTP].siaddr),
                              ("requested_addr", packet_offer[BOOTP].yiaddr), "end"])
         packet_request = eth / ip / udp / boot / dhcp
+        sleep(1)
         sendp(packet_request, iface=DEVICE)
         return True
     except:
