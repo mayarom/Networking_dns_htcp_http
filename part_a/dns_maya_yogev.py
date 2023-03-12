@@ -4,7 +4,7 @@ from scapy.layers.inet import IP, UDP
 from scapy.layers.l2 import Ether
 import sys
 import signal
-
+import dns.resolver
 import socket
 
 DEVICE = "en0"
@@ -18,9 +18,17 @@ def get_domaine_ip(packet):
             return
         name = packet[DNS].qd.qname.decode("utf-8")[:-1]
         ip_ans = dns_ip_pool.get(name)
+        if not ip_ans:
+            print(f"{name} not found in local DNS cache. Querying Google DNS...")
+            answers = dns.resolver.query(name)
+            for rdata in answers:
+                ip_ans = str(rdata)
+                break
+            dns_ip_pool[name] = ip_ans
         packet_handler(packet, name, ip_ans)
     except Exception as e:
         print(f"An error occurred while processing DNS request: {e}")
+
 
 
 
@@ -58,7 +66,7 @@ def signal_handler(sig, frame):
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
     dhcpMac = str(get_if_hwaddr(DEVICE))
-    dns_ip_pool = {'httpAPP': "127.0.0.4"}
+    dns_ip_pool = {"httpAPP": "127.0.0.4", "google.com" : "8.8.8.8", "facebook.com" : "1.2.3.4"}
 
     def listen_for_dns_requests():
         try:
@@ -78,4 +86,3 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("Stopping DNS server...")
         sys.exit(0)
-
