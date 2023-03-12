@@ -66,7 +66,7 @@ def signal_handler(sig, frame):
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
     dhcpMac = str(get_if_hwaddr(DEVICE))
-    dns_ip_pool = {"httpAPP": "127.0.0.4", "google.com" : "8.8.8.8", "facebook.com" : "1.2.3.4"}
+    dns_ip_pool = {"httpAPP": "127.0.0.1", "google.com" : "8.8.8.8", "facebook.com" : "1.2.3.4"}
 
     def listen_for_dns_requests():
         try:
