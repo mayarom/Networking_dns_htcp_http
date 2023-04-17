@@ -1,26 +1,18 @@
-# Final_project
+# Final Project
 
-Brief description of the project and its purpose.
+The purpose of this project is to create three servers: a DNS server, an HTTP server, and an HTTP redirect server. The DNS server is responsible for resolving domain names to IP addresses, the HTTP server serves static content to clients, and the HTTP redirect server forwards clients to the appropriate server based on the requested URL.
 
 ## Requirements
 
-List of dependencies required to run the project, along with any other prerequisites.
-
 - Python 3.6 or higher
 - Scapy 2.4.0 or higher
-- ...
 
 ## Installation
 
-Step-by-step instructions on how to install and set up the project.
-
 1. Clone the repository: `git clone https://github.com/user/project.git`
 2. Install the required dependencies: `pip install -r requirements.txt`
-3. ...
 
 ## Usage
-
-Instructions on how to run and use the project.
 
 ### DNS Server
 
@@ -39,8 +31,5 @@ Instructions on how to run and use the project.
 
 ## Authors
 
-Maya Rom 
-Yogev Ofir
-
-
-
+- Maya Rom <maya5660@gmail.com>
+- Yogev Ofir <yogev282@gmail.com>
