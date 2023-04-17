@@ -1,6 +1,8 @@
 # Final Project
 
-The purpose of this project is to create three servers: a DNS server, an HTTP server, and an HTTP redirect server. The DNS server is responsible for resolving domain names to IP addresses, the HTTP server serves static content to clients, and the HTTP redirect server forwards clients to the appropriate server based on the requested URL.
+## Description
+
+This project involves building three servers: DNS, HTTP, and an HTTP redirect server. The DNS server listens for DNS requests and returns the IP address of the requested domain. The HTTP server serves files requested by clients over HTTP. The HTTP redirect server listens for incoming connections and redirects them to the HTTP server.
 
 ## Requirements
 
@@ -29,7 +31,17 @@ The purpose of this project is to create three servers: a DNS server, an HTTP se
 1. Navigate to the `http_redirect_server` directory: `cd http_redirect_server`
 2. Run the server: `python server.py`
 
+## Tech Subjects and Abilities
+
+- Socket programming in Python
+- Working with HTTP and DNS protocols
+- Implementing DHCP and BOOTP
+- Using Scapy for packet manipulation and capture
+- Working with network layers (L2, L3, L4)
+- Understanding of web servers and how they operate
+- Debugging and troubleshooting network issues
+
 ## Authors
 
-- Maya Rom <maya5660@gmail.com>
-- Yogev Ofir <yogev282@gmail.com>
+- Maya Rom (maya5660@gmail.com)
+- Yogev Ofir(yogev282@gmail.com)
